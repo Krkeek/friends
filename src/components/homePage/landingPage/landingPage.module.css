@@ -1,0 +1,41 @@
+.title{
+    color: #000;
+    text-align: center;
+    font-family: Adamina, serif;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 5px;
+    margin-top: 50px;
+
+}
+.socialMediaDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.imgMargin{
+    margin: 9px;
+}
+.mouseCol{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+
+}
+
+@media screen and (max-width: 900px) {
+    .title{
+        font-size: 30px;
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+    .mouse{
+        width: 150px;
+    }
+
+    .svgMobile{
+        display: none;
+    }
+}

@@ -1,0 +1,16 @@
+.logoCol{
+    padding-left: 30px;
+}
+
+.navbarIconCol{
+    padding-top: 50px;
+    padding-right: 50px;
+}
+
+@media screen and (max-width: 900px) {
+
+    .imgLogo{
+        width: 120px;
+    }
+
+}
