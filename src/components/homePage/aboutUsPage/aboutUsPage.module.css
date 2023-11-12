@@ -1,0 +1,47 @@
+.line{
+    background: black;
+    width: 80vw;
+    height: 1px;
+
+}
+.titleGroup{
+    width: 80vw;
+    margin: 0 auto;
+    padding-bottom: 10%;
+}
+
+.title{
+    font-size: 40px;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    margin-top: 10vh;
+    display: flex;
+    justify-content: end;
+}
+.circle{
+    margin-left: 50vw;
+    margin-top: -80px;
+
+
+
+}
+.content{
+    font-size: 40px;
+    width: 80vw;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 900px) {
+    .title{
+        font-size: 25px;
+        margin-top: 3vh;
+    }
+    .circle{
+        display: none;
+    }
+    .content{
+        font-size: 20px;
+        margin-top: 10%;
+    }
+
+}

@@ -1,12 +1,12 @@
-import styles from './homePage.module.css'
 import LandingPage from "./landingPage/landingPage";
 import EventPage from "./eventPage/eventPage";
-import Navbar from "../navbar/navbar";
+import AboutUsPage from "./aboutUsPage/aboutUsPage";
 export default function HomePage(){
     return(
         <>
             <LandingPage />
             <EventPage />
+            <AboutUsPage />
         </>
     );
 }
