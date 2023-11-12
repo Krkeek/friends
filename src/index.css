@@ -1,8 +1,13 @@
+@font-face {
+  font-family: 'fira Sans';
+  src: url('./assets/fonts/Fira_Sans/FiraSans-Regular.ttf');
+}
 html.lenis {
   height: auto;
 }
 body {
   background: #F2F2F7;
+  font-family: "fira Sans", serif !important ;
 }
 
 
@@ -24,5 +29,4 @@ body {
 
 .PageSection{
   height: 100vh;
-  border-bottom: 1px solid black;
 }

@@ -1,0 +1,28 @@
+.title{
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+.line{
+    background: black;
+    width: 80vw;
+    height: 1px;
+
+}
+.titleGroup{
+    width: 80vw;
+    margin: 0 auto;
+    padding-bottom: 10%;
+}
+
+.eventWrapper{
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 900px) {
+    .title{
+        font-size: 25px;
+    }
+}
