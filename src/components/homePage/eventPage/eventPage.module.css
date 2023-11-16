@@ -30,8 +30,14 @@
     margin-bottom: 5%;
 }
 
-@media screen and (max-width: 900px) {
-    .title{
-        font-size: 25px;
+
+@media screen and (max-width: 1024px){
+    .eventWrapper{
+        grid-template-columns: repeat(2, 1fr); /* Three columns in each row */
+    }
+}
+@media screen and (max-width: 500px){
+    .eventWrapper{
+        grid-template-columns: repeat(1, 1fr); /* Three columns in each row */
     }
 }

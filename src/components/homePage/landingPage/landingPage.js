@@ -6,11 +6,11 @@ import instagram from '../../../assets/socialMediaIcons/instagram.png'
 import telegram from '../../../assets/socialMediaIcons/telegram.png'
 import mouse from '../../../assets/mouse.gif'
 
-export default function LandingPage(){
+const  LandingPage = ({eventPageRef,aboutUsRef}) => {
     return(
         <>
-            <div className={'PageSection'}>
-                <Navbar />
+            <Navbar eventPageRef={eventPageRef} aboutUsPageRef={aboutUsRef}/>
+            <div id={'Home'} className={'PageSection'}>
                 <p className={`${styles.title}`}>Connecting Minds, cultivating conversations and fostering Friendships</p>
                 <div className={`${styles.socialMediaDiv}`}>
                     <svg className={styles.svgMobile}  xmlns="http://www.w3.org/2000/svg" width="38" height="2" viewBox="0 0 38 2" fill="none">
@@ -33,3 +33,4 @@ export default function LandingPage(){
         </>
     );
 }
+export default LandingPage;

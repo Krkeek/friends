@@ -3,7 +3,8 @@ import EventCard from "./eventCard/eventCard";
 import { collection, getDocs } from "firebase/firestore";
 import {db} from '../../../firebase';
 import {useEffect, useState} from "react";
-export default function EventPage(){
+import React from "react";
+    const EventPage = (props, ref) => {
 
     const [eventCards,setEventCards] = useState([]);
 
@@ -24,18 +25,10 @@ export default function EventPage(){
 
     }, []);
 
-    useEffect(() => {
-        // Log the updated state when it changes
-        console.log('Updated Event Cards:', eventCards);
-        console.log(eventCards.length);
-        console.log(eventCards)
-    }, [eventCards]);
-
-
 
     return(
         <>
-            <div className={`PageSection ${styles.eventPage}`}>
+            <div ref={ref} className={`PageSection ${styles.eventPage}`}>
                 <div className={`${styles.titleGroup}`}>
                     <p className={styles.title}>Events</p>
                     <div className={styles.line}></div>
@@ -43,12 +36,12 @@ export default function EventPage(){
                 <div className={`${styles.eventWrapper}`}>
 
                     {eventCards.map((data)=>(
-                        <EventCard title={data.title} date={data.date} description = {data.description} />
+                        <EventCard key={data.title} title={data.title} date={data.date} description = {data.description} />
                     ))}
-
-
                 </div>
             </div>
         </>
     );
 }
+
+export default React.forwardRef(EventPage);

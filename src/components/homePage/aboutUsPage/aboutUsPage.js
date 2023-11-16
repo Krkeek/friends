@@ -1,8 +1,10 @@
 import styles from './aboutUsPage.module.css'
-export default function AboutUsPage(){
+import  React  from "react";
+
+const AboutUsPage = (props,ref) => {
     return(
         <>
-            <div className={'PageSection'}>
+            <div ref={ref} className={'PageSection'}>
                 <div className={`${styles.titleGroup}`}>
                     <div className={styles.line}></div>
                     <p className={styles.title}>About Us</p>
@@ -18,3 +20,4 @@ export default function AboutUsPage(){
         </>
     );
 }
+export default React.forwardRef(AboutUsPage);
