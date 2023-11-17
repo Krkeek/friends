@@ -1,13 +1,12 @@
 import styles from './eventPage.module.css'
 import EventCard from "./eventCard/eventCard";
-import { collection, getDocs } from "firebase/firestore";
+import {collection, doc, getDocs, setDoc} from "firebase/firestore";
 import {db} from '../../../firebase';
 import {useEffect, useState} from "react";
 import React from "react";
     const EventPage = (props, ref) => {
 
     const [eventCards,setEventCards] = useState([]);
-
     const fetchCards = async ()=>{
         await getDocs(collection(db,"events"))
             .then((querySnapshot)=>{
