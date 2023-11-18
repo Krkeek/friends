@@ -32,6 +32,8 @@
 
 .img{
     width: 379px;
+    max-width: 379px;
+    max-height: 300px ;
 }
 
 @media screen and (max-width: 900px) {

@@ -1,13 +1,18 @@
 import styles from './eventPage.module.css'
 import EventCard from "./eventCard/eventCard";
-import {collection, doc, getDocs, setDoc} from "firebase/firestore";
+import {collection, getDocs} from "firebase/firestore";
+import {ref as storageRef, getDownloadURL } from "firebase/storage";
+import { storage } from "../../../firebase";
 import {db} from '../../../firebase';
 import {useEffect, useState} from "react";
 import React from "react";
+import data from "bootstrap/js/src/dom/data";
     const EventPage = (props, ref) => {
 
     const [eventCards,setEventCards] = useState([]);
+
     const fetchCards = async ()=>{
+
         await getDocs(collection(db,"events"))
             .then((querySnapshot)=>{
                 const newData = querySnapshot.docs
@@ -35,7 +40,7 @@ import React from "react";
                 <div className={`${styles.eventWrapper}`}>
 
                     {eventCards.map((data)=>(
-                        <EventCard key={data.title} title={data.title} date={data.date} description = {data.description} />
+                        <EventCard key={data.title} title={data.title} date={data.date} description = {data.description} url={data.titleImageURL} />
                     ))}
                 </div>
             </div>

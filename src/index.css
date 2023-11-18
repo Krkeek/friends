@@ -2,7 +2,7 @@
   font-family: 'fira Sans';
   src: url('./assets/fonts/Fira_Sans/FiraSans-Regular.ttf');
 }
-html.lenis {
+html {
   height: auto;
 }
 body {
@@ -11,21 +11,6 @@ body {
 }
 
 
-.lenis.lenis-smooth {
-  scroll-behavior: auto;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
-}
 
 .PageSection{
   height: 100vh;

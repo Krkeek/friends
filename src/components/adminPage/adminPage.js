@@ -10,6 +10,8 @@ import EventModal from "./eventModal/eventModal";
 
 const AdminPage = ()=>{
     const navigate = useNavigate();
+    const [isModalOpen, setModalOpen] = useState(false);
+
 
     const handleLogout = async () => {
 
@@ -22,8 +24,6 @@ const AdminPage = ()=>{
             console.error('Error during logout:', error);
         }
     }
-
-    const [isModalOpen, setModalOpen] = useState(false);
 
     const openModal = () => {
         setModalOpen(true);
@@ -43,8 +43,6 @@ const AdminPage = ()=>{
             {isModalOpen && <EventModal closeModal={closeModal} />}
 
             <EventPage />
-
-
         </>
     )
 
