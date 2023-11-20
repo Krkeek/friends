@@ -1,15 +1,26 @@
 import styles from './eventCard.module.css'
-import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { gsap } from "gsap";
-import {useEffect, useLayoutEffect, useRef, useState} from "react";
+import {useState} from "react";
+import EventCardDescription from "./eventCardDescription/eventCardDescription";
+
 
 export default function EventCard(props){
-    const [downloadURL, setDownloadURL] = useState('');
+    const [isModalOpen, setModalOpen] = useState(false);
+
+
+
+    const openModal = () => {
+        setModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalOpen(false);
+    };
+
 
 
     return(
         <>
-            <div>
+            <div onClick={openModal}>
                 <div className={`${styles.cardContainer} cardContainer`}>
                     <div className={'row'}>
                         <div className={'col'}>
@@ -25,6 +36,8 @@ export default function EventCard(props){
 
                 </div>
             </div>
+            {isModalOpen && <EventCardDescription title={props.title} date={props.date} url={props.url} description={props.description} closeModal={closeModal} />}
+
         </>
     );
 }

@@ -1,4 +1,3 @@
-import styles from './adminPage.module.css'
 import { useNavigate} from "react-router-dom";
 import { getAuth, signOut } from 'firebase/auth';
 import EventPage from "../homePage/eventPage/eventPage";
@@ -32,7 +31,6 @@ const AdminPage = ()=>{
     const closeModal = () => {
         setModalOpen(false);
     };
-
 
     return(
         <>
