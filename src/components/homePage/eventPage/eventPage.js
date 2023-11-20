@@ -1,12 +1,9 @@
 import styles from './eventPage.module.css'
 import EventCard from "./eventCard/eventCard";
 import {collection, getDocs} from "firebase/firestore";
-import {ref as storageRef, getDownloadURL } from "firebase/storage";
-import { storage } from "../../../firebase";
 import {db} from '../../../firebase';
 import {useEffect, useState} from "react";
 import React from "react";
-import data from "bootstrap/js/src/dom/data";
     const EventPage = (props, ref) => {
 
     const [eventCards,setEventCards] = useState([]);
