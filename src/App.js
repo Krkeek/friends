@@ -5,6 +5,7 @@ import LoginPage from "./components/auth/loginPage/loginpage";
 import ContactPage from "./components/homePage/contactPage/contactPage";
 import AdminPage from "./components/adminPage/adminPage";
 import ProtectedRoute from "./components/auth/protectedRoute/protectedRoute";
+import WelcomePage from "./components/welcomePage/welcomePage";
 
 function App() {
 
@@ -12,7 +13,8 @@ function App() {
       <>
           <BrowserRouter>
               <Routes>
-                  <Route  index element={<HomePage />} ></Route>
+                  <Route  index element={<WelcomePage />} ></Route>
+                  <Route path={'/welcomePage'} element={<WelcomePage />}></Route>
                   <Route path={'/homePage'} element={<HomePage />}></Route>
                   <Route path={'/loginPage'} element={<LoginPage  />}></Route>
                   <Route path={'/contact'} element={<ContactPage />}></Route>

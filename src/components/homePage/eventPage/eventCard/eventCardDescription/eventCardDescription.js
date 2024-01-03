@@ -4,7 +4,20 @@ import {useEffect, useState} from "react";
 import {query, deleteDoc, collection, where, getDocs} from "firebase/firestore";
 import {db, storage} from "../../../../../firebase";
 import {ref, deleteObject} from "firebase/storage";
+import EventModal from "../../../../adminPage/eventModal/eventModal";
 const EventCardDescription = (props)=>{
+
+    const [isModalOpen, setModalOpen] = useState(false);
+    const editMode = true;
+
+    const openModal = () => {
+        setModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setModalOpen(false);
+    };
+
     const auth = getAuth();
     const [isAuth, setIsAuth] = useState(auth);
 
@@ -35,19 +48,16 @@ const EventCardDescription = (props)=>{
 
             })
 
-        props.closeModal();
 
     }
 
     return(
         <>
             <div className={styles.modal}>
-
                 <div className={styles.modalContent}>
                     <div style={{display: !isAuth ? 'none' : ' ' }} className={'row'}>
-                        <div className={'col'}><button>Edit</button></div>
+                        <div className={'col'}><button onClick={openModal}>Edit</button></div>
                         <div className={'col'}><button onClick={()=>handleDeleteEvent(props.title, props.url)}>Delete</button></div>
-
                     </div>
 
                     <span className={styles.close} onClick={props.closeModal}>&times;</span>
@@ -68,6 +78,7 @@ const EventCardDescription = (props)=>{
                     </div>
 
                 </div>
+                {isModalOpen && <EventModal handleDeleteEvent={handleDeleteEvent} editMode={editMode} url={props.url} title={props.title} date={props.date} description={props.description} closeModal={closeModal} />}
             </div>
         </>
     );
