@@ -1,47 +1,37 @@
-.line{
-    background: black;
-    width: 80vw;
-    height: 1px;
 
+
+.Container {
+    max-height: 100vh;
+    overflow: clip;
 }
-.titleGroup{
-    width: 80vw;
-    margin: 0 auto;
-    padding-bottom: 10%;
+.Circle {
+    position: fixed;
+    right: -20vw;
+    top: 50vh;
+    width: 50vw;
+    height: 50vw;
+    border-radius: 1500px;
+    background: #F0F3F8;
+    z-index: -1;
+    overflow: hidden;
+}
+.Title {
+    color: #000;
+    font-size: 6rem;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 5px;
 }
 
-.title{
-    font-size: 40px;
-    font-weight: bolder;
+.Description {
+    color: rgba(0, 0, 0, 0.62);
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 100%; /* 32px */
     letter-spacing: 2px;
-    margin-top: 10vh;
-    display: flex;
-    justify-content: end;
 }
-.circle{
-    margin-left: 50vw;
-    margin-top: -80px;
-
-
-
-}
-.content{
-    font-size: 40px;
-    width: 80vw;
-    margin: 0 auto;
-}
-
-@media screen and (max-width: 900px) {
-    .title{
-        font-size: 25px;
-        margin-top: 3vh;
-    }
-    .circle{
-        display: none;
-    }
-    .content{
-        font-size: 20px;
-        margin-top: 10%;
-    }
+.ContentContainer{
+    width: 80%;
+    padding: 20vh 2rem;
 
 }

@@ -1,6 +1,6 @@
 import { useNavigate} from "react-router-dom";
 import { getAuth, signOut } from 'firebase/auth';
-import EventPage from "../homePage/eventPage/eventPage";
+import EventPage from "../homePage/eventPageOld/eventPage";
 import {useState} from "react";
 import EventModal from "./eventModal/eventModal";
 
