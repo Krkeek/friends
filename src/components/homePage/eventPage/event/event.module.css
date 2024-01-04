@@ -1,0 +1,60 @@
+.Container {
+    display: flex;
+    min-width: 100%;
+    height: 30vh;
+    padding-left: 5rem;
+}
+.LeftSide{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.RightSide{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding-left: 2rem;
+    border-bottom: 4px solid #F0F3F8;;
+
+
+}
+.ThumbnailImg {
+    width: 100%;
+    border-radius: 35px;
+}
+.Title {
+    color: #000;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 0.1;
+}
+
+.Date {
+    color: #070707;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.Description {
+    width: 85%;
+    color: rgba(0, 0, 0, 0.70);
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 100%;
+}
+
+.SeeMoreButton {
+    margin-top: 2rem;
+    background-color: transparent;
+    border: none;
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 0;
+    width: fit-content;
+}
+
