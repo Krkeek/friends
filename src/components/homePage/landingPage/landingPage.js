@@ -1,5 +1,5 @@
 import styles from './landingPage.module.css'
-import Navbar from "../../navbar/navbar";
+import Navbar from "../../common/navbar/navbar";
 import email from '../../../assets/socialMediaIcons/email.png'
 import facebook from '../../../assets/socialMediaIcons/facebook.png'
 import instagram from '../../../assets/socialMediaIcons/instagram.png'

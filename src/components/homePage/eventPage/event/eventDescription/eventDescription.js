@@ -1,5 +1,5 @@
 import styles from './eventDescription.module.css'
-import TopBar from "../../../../topBar/topBar";
+import TopBar from "../../../../common/topBar/topBar";
 import galleryImg from '../../../../../assets/gallerySection.png'
 import arrowBack from '../../../../../assets/arrowback.png'
 const EventDescription = (props)=> {

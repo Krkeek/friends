@@ -1,0 +1,74 @@
+.Container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+
+}
+.LeftSide {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.RightSide {
+    width: 50%;
+}
+.RightSide img {
+    height: auto;
+    width: 100%;
+}
+
+.FormContainer {
+    min-width: 60%;
+}
+.Header {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 0; /* 0px */
+    letter-spacing: 3px;
+}
+.Subtitle {
+    padding-bottom: 2rem;
+
+}
+.Label {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 0.9;
+}
+.Input {
+    width: 20vw;
+    height: 3rem;
+    border-radius: 10px;
+    border: 2px solid #DAE0EC;
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+}
+
+.LoginButton {
+    width: 20vw;
+    color: #FFF;
+    text-align: center;
+    font-size: 1.7rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    background: #000;
+    border: none;
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+
+}
+
+.HomePageButton {
+    text-decoration: none;
+    color: black;
+    height: 1rem;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom-color 0.5s linear;
+}
+.HomePageButton:hover {
+    border-bottom: 2px solid black;
+    transition: border-bottom-color 0.5s linear;
+}

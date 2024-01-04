@@ -1,5 +1,5 @@
 import styles from './eventPage.module.css'
-import TopBar from "../../topBar/topBar";
+import TopBar from "../../common/topBar/topBar";
 import Event from "./event/event";
 const EventPage = (props)=> {
     return(

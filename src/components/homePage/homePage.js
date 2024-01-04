@@ -1,6 +1,6 @@
 
 import {useState} from "react";
-import SideBar from "../sideBar/sideBar";
+import SideBar from "../common/sideBar/sideBar";
 import styles from './homePage.module.css'
 import EventPage from "./eventPage/eventPage";
 import ContactPage from "./contactPage/contactPage";

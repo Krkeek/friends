@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 import {query, deleteDoc, collection, where, getDocs} from "firebase/firestore";
 import {db, storage} from "../../../../../firebase";
 import {ref, deleteObject} from "firebase/storage";
-import EventModal from "../../../../adminPage/eventModal/eventModal";
+import EventModal from "../../../../common/adminPage/eventModal/eventModal";
 const EventCardDescription = (props)=>{
 
     const [isModalOpen, setModalOpen] = useState(false);

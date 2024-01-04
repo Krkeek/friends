@@ -1,11 +1,11 @@
 import './App.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import HomePage from "./components/homePage/homePage";
-import LoginPage from "./components/auth/loginPage/loginpage";
 import ContactPage from "./components/homePage/contactPage/contactPage";
-import AdminPage from "./components/adminPage/adminPage";
+import AdminPage from "./components/common/adminPage/adminPage";
 import ProtectedRoute from "./components/auth/protectedRoute/protectedRoute";
 import WelcomePage from "./components/welcomePage/welcomePage";
+import LoginPage from "./components/auth/loginPage/loginPage";
 
 function App() {
 
