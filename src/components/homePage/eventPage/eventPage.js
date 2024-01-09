@@ -5,8 +5,10 @@ import {useContext, useEffect, useState} from "react";
 import {fetchData} from "../../controllers/fetchData";
 import {sortData} from "../../controllers/dateObjectConverter";
 import {authUserContext} from "../../../auth/authUserContext";
+import plusEventIcon from '../../../assets/itemPlus.png'
 const EventPage = (props)=> {
     const [data,setData] = useState(null);
+    const {currentUser} = useContext(authUserContext)
 
     useEffect( () => {
         fetchData().then(data =>{
@@ -17,16 +19,18 @@ const EventPage = (props)=> {
         })
     }, []);
 
-
-
     return(
         <>
         <div className={`${styles.Container}`}>
             <TopBar />
             <div style={{display: "block"}} className={`${styles.HightLightedEventsDiv}`}>
                 <p className={`${styles.RecentEventTitle}`}>Recent Event</p>
-                <Event recentEvent={true}  setOnFocusSection={props.setOnFocusSection} data={data && data[0]} handleDescriptionPageData={props.handleDescriptionPageData} />
+                {
+                    currentUser === null
+                    ?<Event recentEvent={true}  setOnFocusSection={props.setOnFocusSection} data={data && data[0]} handleDescriptionPageData={props.handleDescriptionPageData} />
+                    : <button onClick={()=> props.setOnFocusSection('ADD_EVENT')} className={`${styles.AddEventButton}`}>Add an event<img src={`${plusEventIcon}`} alt={'plus'} /></button>
 
+                }
             </div>
             <div className={`${styles.OtherEventsDiv}`}>
                 <div className={`${styles.TitleDiv}`}>
@@ -35,7 +39,7 @@ const EventPage = (props)=> {
                 </div>
                 {data?.map((event,index)=>{
 
-                    if (event?.date === data[0]?.date){
+                    if (currentUser === null && event?.date === data[0]?.date){
                         return  null;
                     }
                     return (

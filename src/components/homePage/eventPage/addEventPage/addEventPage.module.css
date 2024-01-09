@@ -1,0 +1,57 @@
+.Container {
+    display: flex;
+    flex-flow: column;
+    width: fit-content;
+    margin-top: 5vh;
+    margin-left: 5rem;
+
+}
+
+.ButtonsDiv {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+}
+
+.ButtonsDiv button {
+    border-radius: 10px;
+    background: #F0F3F8;
+    border: none;
+    font-size: 1.3rem;
+    padding: 0.3rem 1.2rem;
+    margin-bottom: 10vh;
+
+}
+.ButtonsDiv button img {
+    width: 1.2rem;
+    margin-left: 0.5rem;
+}
+
+.thumbnailInput {
+    border-radius: 10px;
+    background: #F0F3F8;
+    border: none;
+    font-size: 1.3rem;
+    font-weight: 700;
+    display: flex;
+    margin-bottom: 1rem;
+    width: 35%;
+    padding: 0.5rem 2rem;
+}
+
+.Container textarea {
+    width: 50vw;
+    max-height: 40vh;
+    min-height: 40vh;
+}
+
+.InputDesign {
+    border-radius: 10px;
+    border: 3px solid #DAE0EC;
+    background: #FFF;
+    width: 15vw;
+    height: 4vh;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    font-size: 1.2rem;
+}

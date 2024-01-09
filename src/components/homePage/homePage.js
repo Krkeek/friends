@@ -9,6 +9,7 @@ import WelcomePage from "../welcomePage/welcomePage";
 import EventDescription from "./eventPage/event/eventDescription/eventDescription";
 import {checkAuthentication} from "../../auth/authentication";
 import {authUserContext} from "../../auth/authUserContext";
+import AddEventPage from "./eventPage/addEventPage/addEventPage";
 export default function HomePage(){
 
     const [onFocusSection, setOnFocusSection] = useState('EVENTS');
@@ -47,6 +48,7 @@ export default function HomePage(){
                     {onFocusSection === 'ABOUTUS' && <AboutUsPage />}
                     {onFocusSection === 'CONNECT' && <ContactPage />}
                     {onFocusSection === 'EVENT_DESCRIPTION' && <EventDescription data={onFocusEvent} setOnFocusSection={setOnFocusSectionFn} />}
+                    {onFocusSection === 'ADD_EVENT' && <AddEventPage setOnFocusSection={setOnFocusSectionFn} />}
 
 
                 </div>
