@@ -1,18 +1,35 @@
 import styles from './event.module.css'
-import thumbnailImg from '../../../../assets/thumbnail.png'
+import {useEffect, useState} from "react";
+import {fetchThumbnail} from "../../../controllers/fetchData";
+import {briefDescriptionConverter} from "../../../controllers/briefDescriptionConverter";
 
 const Event = (props)=> {
+
+    const [imgUrl, setImgUrl] = useState(null);
+    const [briefDescription, setBriefDescription] = useState('');
+
+
+    useEffect(() => {
+        if (props.data){
+            fetchThumbnail(props.data.titleImageURL)
+                .then(url =>{
+                    setImgUrl(url)
+                })
+            setBriefDescription(briefDescriptionConverter(props.data?.description))
+        }
+    }, [props.data]);
+
     return(
         <>
-            <div className={`${styles.Container}`}>
-                <div className={`${styles.LeftSide}`}>
-                    <img src={`${thumbnailImg}`} alt={'thumbnail'} className={`${styles.ThumbnailImg}`} />
+            <div className={`${styles.Container}  ${props.recentEvent && styles.recentContainer}`}>
+                <div className={`${styles.LeftSide}  ${props.recentEvent && styles.recentLeftSide}`}>
+                    <img src={imgUrl} alt={'thumbnail'} className={`${styles.ThumbnailImg}`} />
                 </div>
-                <div className={`${styles.RightSide}`}>
-                    <p className={`${styles.Title}`}>Graduation</p>
-                    <p className={`${styles.Date}`}>Nov, 15 2023</p>
-                    <p className={`${styles.Description}`}>Graduation marks the end of hard work and the beginning of new opportunities, symbolizing growth and achievement. It’s a pivotal.</p>
-                    <button onClick={()=> props.setOnFocusSection('EVENT_DESCRIPTION')} className={`${styles.SeeMoreButton}`}>See more</button>
+                <div className={`${styles.RightSide}  ${props.recentEvent && styles.recentRightSide}`}>
+                    <p className={`${styles.Title}`}>{props.data?.title}</p>
+                    <p className={`${styles.Date}`}>{props.data?.date}</p>
+                    <p className={`${styles.Description}  ${props.recentEvent && styles.recentDescription}`}>{briefDescription}</p>
+                    <button onClick={()=> props.handleDescriptionPageData(props.data)} className={`${styles.SeeMoreButton}`}>See more</button>
                 </div>
 
             </div>

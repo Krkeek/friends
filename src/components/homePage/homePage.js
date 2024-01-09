@@ -1,5 +1,5 @@
 
-import {useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import SideBar from "../common/sideBar/sideBar";
 import styles from './homePage.module.css'
 import EventPage from "./eventPage/eventPage";
@@ -7,11 +7,32 @@ import ContactPage from "./contactPage/contactPage";
 import AboutUsPage from "./aboutUsPage/aboutUsPage";
 import WelcomePage from "../welcomePage/welcomePage";
 import EventDescription from "./eventPage/event/eventDescription/eventDescription";
+import {checkAuthentication} from "../../auth/authentication";
+import {authUserContext} from "../../auth/authUserContext";
 export default function HomePage(){
 
     const [onFocusSection, setOnFocusSection] = useState('EVENTS');
+    const [onFocusEvent, setOnFocusEvent] = useState({})
+    const {loginUser} = useContext(authUserContext);
     const setOnFocusSectionFn = (section)=> setOnFocusSection(section)
 
+    const handleDescriptionPageData = (data)=> {
+        setOnFocusEvent(data);
+        setOnFocusSection('EVENT_DESCRIPTION');
+
+    }
+
+
+    useEffect(() => {
+        checkAuthentication()
+            .then((user) => {
+                if (user)
+                {
+                    loginUser(user);
+                }
+            })
+
+    }, []);
 
     return(
         <>
@@ -22,10 +43,10 @@ export default function HomePage(){
                 <div className={`${styles.RightSide}`}>
 
                     {onFocusSection === 'HOME' && <WelcomePage />}
-                    {onFocusSection === 'EVENTS' && <EventPage setOnFocusSection={setOnFocusSectionFn} />}
+                    {onFocusSection === 'EVENTS' && <EventPage  handleDescriptionPageData={handleDescriptionPageData} setOnFocusSection={setOnFocusSectionFn} />}
                     {onFocusSection === 'ABOUTUS' && <AboutUsPage />}
                     {onFocusSection === 'CONNECT' && <ContactPage />}
-                    {onFocusSection === 'EVENT_DESCRIPTION' && <EventDescription setOnFocusSection={setOnFocusSectionFn} />}
+                    {onFocusSection === 'EVENT_DESCRIPTION' && <EventDescription data={onFocusEvent} setOnFocusSection={setOnFocusSectionFn} />}
 
 
                 </div>

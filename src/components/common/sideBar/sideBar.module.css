@@ -22,7 +22,7 @@
 }
 .NavElement {
     width: 100%;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 400;
     letter-spacing: 2px;
     color: rgba(0, 0, 0, 0.50);
@@ -47,7 +47,7 @@
 
 .SocialMediaDiv p {
     color: #000;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 400;
     letter-spacing: 2px;
     text-align: center;
