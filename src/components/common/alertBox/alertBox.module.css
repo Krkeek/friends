@@ -1,0 +1,46 @@
+.Container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+}
+
+.AlertBox {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 30%;
+    height: 20%;
+    background-color: white;
+    border: 3px solid #DAE0EC;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.AlertSentence {
+    font-size: 1.5rem;
+    line-height: 100%;
+}
+
+.AlertButtons {
+    margin-top: 2rem;
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+
+
+}
+
+.AlertButtons button {
+    border-radius: 10px;
+    background: #F0F3F8;
+    font-size: 1.5rem;
+    padding: 0.1rem 1.2rem;
+    border: none;
+}

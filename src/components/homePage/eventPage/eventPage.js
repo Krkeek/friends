@@ -2,8 +2,8 @@ import styles from './eventPage.module.css'
 import TopBar from "../../common/topBar/topBar";
 import Event from "./event/event";
 import {useContext, useEffect, useState} from "react";
-import {fetchData} from "../../controllers/fetchData";
-import {sortData} from "../../controllers/dateObjectConverter";
+import {fetchData} from "../../utils/fetchData";
+import {sortData} from "../../utils/dateObjectConverter";
 import {authUserContext} from "../../../auth/authUserContext";
 import plusEventIcon from '../../../assets/itemPlus.png'
 const EventPage = (props)=> {

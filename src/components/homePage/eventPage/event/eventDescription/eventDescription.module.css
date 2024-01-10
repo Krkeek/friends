@@ -18,7 +18,7 @@
     display: flex;
     align-items: center;
 }
-.Title img {
+.TitleButton img {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,12 +32,15 @@
 
 
 }
-.Title button {
+
+
+.TitleButton {
     background-color: transparent;
     margin-right: 2rem;
     border: none;
+
 }
-.Title img:hover {
+.TitleButton img:hover {
     background-color: #F0F3F8;
     border: 2px solid black;
 
@@ -68,4 +71,80 @@
 .GalleryImg {
     width: 19%;
     margin: 0.2rem;
+}
+
+.AdminDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 20%;
+    margin-top: 2rem;
+
+}
+
+
+.AdminButtons {
+    border-radius: 10px;
+    background: #F0F3F8;
+    border: none;
+    font-size: 1.5rem;
+    padding: 0.1rem 1.2rem;
+
+}
+.AdminButtons img {
+    width: 1.2rem;
+    margin-left: 0.5rem;
+}
+
+.TitleEditDiv {
+    display: flex;
+    align-items: center;
+    margin-top: 2.5rem;
+    margin-bottom: 2rem;
+}
+.TitleEdit {
+    border-radius: 10px;
+    border: 3px solid #dae0ec;
+    background: #FFF;
+    width: 20vw;
+    height: 5vh;
+    padding-left: 1rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.DateEdit {
+    border-radius: 10px;
+    border: 3px solid #DAE0EC;
+    background: #FFF;
+    width: 15vw;
+    height: 4vh;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.DescriptionEdit {
+    border-radius: 10px;
+    border: 3px solid #DAE0EC;
+    background: #FFF;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    width: 50vw;
+    max-height: 40vh;
+    min-height: 40vh;
+
+}
+
+.thumbnailInput {
+    border-radius: 10px;
+    background: #F0F3F8;
+    border: none;
+    font-size: 1.3rem;
+    font-weight: 700;
+    display: flex;
+    width: 35%;
+    padding: 0.5rem 2rem;
+    margin-left: 2rem;
 }

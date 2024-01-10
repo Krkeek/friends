@@ -1,7 +1,7 @@
 import styles from './event.module.css'
 import {useEffect, useState} from "react";
-import {fetchThumbnail} from "../../../controllers/fetchData";
-import {briefDescriptionConverter} from "../../../controllers/briefDescriptionConverter";
+import {fetchThumbnail} from "../../../utils/fetchData";
+import {briefDescriptionConverter} from "../../../utils/briefDescriptionConverter";
 
 const Event = (props)=> {
 

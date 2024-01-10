@@ -55,3 +55,8 @@
     padding-left: 1rem;
     font-size: 1.2rem;
 }
+
+.DateDesign {
+    padding-right: 1rem;
+    color: rgba(0, 0, 0, 0.54);
+}

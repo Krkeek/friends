@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {authUserContext} from "./authUserContext";
 
 const AuthUserProvider = ({children})=> {
@@ -8,10 +8,7 @@ const AuthUserProvider = ({children})=> {
 
     const logoutUser = ()=> setCurrentUser(null);
 
-    useEffect(() => {
-        console.log('currentUser Status:');
-        console.log(currentUser?.email);
-    }, [currentUser]);
+
 
     return(
         <>

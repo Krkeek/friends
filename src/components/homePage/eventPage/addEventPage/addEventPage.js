@@ -2,7 +2,8 @@ import styles from './addEventPage.module.css'
 import crossIcon from '../../../../assets/eventDescriptionPage/cross.png'
 import tickIcon from '../../../../assets/eventDescriptionPage/tick.png'
 import {useState} from "react";
-import {addData} from "../../../controllers/addData";
+import {addData} from "../../../utils/addData";
+import {convertedDateFormat} from "../../../utils/dateObjectConverter";
 
 const AddEventPage = (props)=> {
 
@@ -27,7 +28,7 @@ const AddEventPage = (props)=> {
                 </div>
                 <input className={`${styles.thumbnailInput}`} type={"file"} accept="image/*"  onChange={(event)=> setThumbnailFile(event.target.files[0])} />
                 <input className={`${styles.InputDesign}`} type={'text'} onChange={(event)=> setTitle(event.target.value)} placeholder={'Add title'}/>
-                <input className={`${styles.InputDesign}`} type={'text'} onChange={(event)=> setDate(event.target.value)} placeholder={'Add date'}/>
+                <input className={`${styles.InputDesign} ${styles.DateDesign}`} type={'date'} onChange={(event)=> setDate(convertedDateFormat(event.target.value))} placeholder={'Add date'}/>
                 <textarea className={`${styles.InputDesign}`} onChange={(event)=> setDescription(event.target.value)} placeholder={'Add description'}></textarea>
                 <div className={`${styles.AddPhotosDiv}`}></div>
 
