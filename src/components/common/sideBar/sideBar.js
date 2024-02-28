@@ -10,14 +10,23 @@ import telegramIcon from '../../../assets/sideBarSocialMedia/telegram.png'
 
 import {Link} from "react-router-dom";
 import {useGSAP} from "@gsap/react";
-import {sideBarAnimation} from "../../../animations/homePage";
+import {gsap} from "gsap";
 import {useRef} from "react";
 
 
-
-
-
 const SideBar = (props)=> {
+
+    const animationRef = useRef();
+
+    useGSAP(()=>{
+
+        gsap.timeline()
+            .fromTo('.containerAnimation',{x:"-50vw"},{x:0, duration:1})
+            .fromTo('.navElementAnimation',{yPercent:-50, opacity:0},{yPercent:0,opacity:1, stagger:0.5, duration:0.5},'=-0.5')
+            .fromTo('.followUsAnimation',{opacity: 0},{opacity:1},"=-0.7")
+            .fromTo('.socialAnimation',{opacity: 0, yPercent: -50},{opacity:1, yPercent:0},'=-0.5')
+
+    },{scope: animationRef})
 
 
     const handleClick = (navRoute)=> {
@@ -25,7 +34,7 @@ const SideBar = (props)=> {
     }
 
     return(
-        <>
+        <div ref={animationRef}>
             <div className={`${styles.Container} containerAnimation`}>
                 <div className={`${styles.LogoDiv}`}>
                     <img src={`${logo}`} alt={'logo'} />
@@ -45,7 +54,7 @@ const SideBar = (props)=> {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 export default SideBar

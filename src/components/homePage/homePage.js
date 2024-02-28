@@ -1,5 +1,5 @@
 
-import {useContext, useEffect, useRef, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import SideBar from "../common/sideBar/sideBar";
 import styles from './homePage.module.css'
 import EventPage from "./eventPage/eventPage";
@@ -10,17 +10,9 @@ import EventDescription from "./eventPage/event/eventDescription/eventDescriptio
 import {checkAuthentication} from "../../auth/authentication";
 import {authUserContext} from "../../auth/authUserContext";
 import AddEventPage from "./eventPage/addEventPage/addEventPage";
-import {useGSAP} from "@gsap/react";
-import {homePageAnimation} from "../../animations/homePage";
+
 
 export default function HomePage(){
-
-    const animationRef = useRef();
-
-
-    useGSAP(()=>{
-        homePageAnimation()
-    },{scope: animationRef})
 
 
     const [onFocusSection, setOnFocusSection] = useState('EVENTS');
@@ -46,7 +38,7 @@ export default function HomePage(){
     }, []);
 
     return(
-        <div ref={animationRef}>
+        <>
 
                 <div className={`${styles.Container} homePageAnimation`}>
                     <div className={`${styles.LeftSide}`}>
@@ -65,6 +57,6 @@ export default function HomePage(){
 
                     </div>
                 </div>
-        </div>
+        </>
     );
 }

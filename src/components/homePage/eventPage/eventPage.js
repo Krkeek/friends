@@ -1,12 +1,23 @@
 import styles from './eventPage.module.css'
 import TopBar from "../../common/topBar/topBar";
 import Event from "./event/event";
-import {useContext} from "react";
+import {useContext, useRef} from "react";
 import {fetchData} from "../../utils/fetchData";
 import {authUserContext} from "../../../auth/authUserContext";
 import plusEventIcon from '../../../assets/itemPlus.png'
 import {useQuery} from "@tanstack/react-query";
+import {useGSAP} from "@gsap/react";
+import {gsap} from "gsap";
+
 const EventPage = (props)=> {
+
+    const animationRef = useRef();
+    useGSAP(()=>{
+        gsap.timeline()
+            .fromTo('.titleAnimation',{yPercent:-100, opacity:0},{yPercent:0,opacity:1})
+    },{scope: animationRef})
+
+
     const {currentUser} = useContext(authUserContext);
     const {data, isLoading} = useQuery({
         queryFn: () => fetchData(),
@@ -15,18 +26,18 @@ const EventPage = (props)=> {
 
     if (isLoading){
             return (
-                <>
-                    <div className={`${styles.LoadingContainer}`}><p>Events is loading...</p></div>
-                </>
+                <div ref={animationRef}>
+                    <div className={`${styles.LoadingContainer} titleAnimation`}><p>Events is loading...</p></div>
+                </div>
                 )
     }
 
     return(
-        <>
+        <div ref={animationRef}>
         <div className={`${styles.Container}`}>
             <TopBar />
-            <div style={{display: "block"}} className={`${styles.HightLightedEventsDiv} hightLightedEventsAnimation`}>
-                <p className={`${styles.RecentEventTitle} highLightedTitleAnimation`}>Recent Event</p>
+            <div style={{display: "block"}} className={`${styles.HightLightedEventsDiv}`}>
+                <p className={`${styles.RecentEventTitle} titleAnimation`}>Recent Event</p>
                 {
                     currentUser === null
                     ?<Event recentEvent={true}  setOnFocusSection={props.setOnFocusSection} data={data && data[0]} handleDescriptionPageData={props.handleDescriptionPageData} />
@@ -35,7 +46,7 @@ const EventPage = (props)=> {
                 }
             </div>
             <div className={`${styles.OtherEventsDiv}`}>
-                <div className={`${styles.TitleDiv}`}>
+                <div className={`${styles.TitleDiv} titleAnimation`}>
                     <div className={`${styles.Title}`}>More Events</div>
                     <div className={`${styles.Line}`}></div>
                 </div>
@@ -53,7 +64,7 @@ const EventPage = (props)=> {
 
 
         </div>
-        </>
+        </div>
     );
 }
 export default EventPage

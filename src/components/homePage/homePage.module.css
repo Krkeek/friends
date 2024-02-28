@@ -2,9 +2,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 .LeftSide {
+    position: relative;
+
 }
 .RightSide {
     width: 100%;

@@ -1,10 +1,12 @@
 import styles from './loginPage.module.css'
 import loginImg from '../../assets/loginImg.webp'
 import {Link} from "react-router-dom";
-import {useContext, useState} from "react";
+import {useContext, useRef, useState} from "react";
 import {signInUser} from "../authentication";
 import {authUserContext} from "../authUserContext";
 import { useNavigate } from "react-router-dom";
+import {useGSAP} from "@gsap/react";
+import {gsap} from "gsap";
 
 
 const LoginPage = ()=> {
@@ -27,9 +29,16 @@ const LoginPage = ()=> {
         }
     }
 
+
+    const animationRef = useRef();
+    useGSAP(()=>{
+        gsap.timeline()
+            .fromTo('.loginPageAnimation',{opacity:0},{opacity:1, duration:1.5})
+    },{scope: animationRef})
+
     return(
-        <>
-            <div className={`${styles.Container}`}>
+        <div ref={animationRef}>
+            <div className={`${styles.Container} loginPageAnimation`}>
                 <div className={`${styles.LeftSide}`}>
                     <div className={`${styles.FormContainer}`}>
                         <p className={`${styles.Header}`}>Welcome Back</p>
@@ -49,7 +58,7 @@ const LoginPage = ()=> {
                 </div>
 
             </div>
-        </>
+        </div>
     );
 }
 export default LoginPage;
