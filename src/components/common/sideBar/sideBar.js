@@ -9,6 +9,9 @@ import instagramIcon from '../../../assets/sideBarSocialMedia/instagram.png'
 import telegramIcon from '../../../assets/sideBarSocialMedia/telegram.png'
 
 import {Link} from "react-router-dom";
+import {useGSAP} from "@gsap/react";
+import {sideBarAnimation} from "../../../animations/homePage";
+import {useRef} from "react";
 
 
 
@@ -16,26 +19,27 @@ import {Link} from "react-router-dom";
 
 const SideBar = (props)=> {
 
+
     const handleClick = (navRoute)=> {
         props.setOnFocusSectionFn(navRoute);
     }
 
     return(
         <>
-            <div className={`${styles.Container}`}>
+            <div className={`${styles.Container} containerAnimation`}>
                 <div className={`${styles.LogoDiv}`}>
                     <img src={`${logo}`} alt={'logo'} />
                 </div>
                 <div className={`${styles.NavElementsDiv}`}>
-                    <Link  className={`${styles.NavElement}`} to={'/welcomePage'}><img src={`${homeIcon}`} alt={'icon'}/>Home</Link>
-                    <button onClick={()=> handleClick('EVENTS')}  className={`${styles.NavElement}`}><img src={`${eventsIcon}`} alt={'icon'}/>Events</button>
-                    <button onClick={()=> handleClick('ABOUTUS')}  className={`${styles.NavElement}`}><img src={`${aboutUsIcon}`} alt={'icon'}/>About us</button>
-                    <Link  to={'mailto:info@tucfriends.com'} className={`${styles.NavElement}`}><img src={`${connectIcon}`} alt={'icon'}/>Connect</Link>
+                    <Link  className={`${styles.NavElement} navElementAnimation`} to={'/welcomePage'}><img src={`${homeIcon}`} alt={'icon'}/>Home</Link>
+                    <button onClick={()=> handleClick('EVENTS')}  className={`${styles.NavElement} navElementAnimation ${props.onFocusSection === 'EVENTS' && styles.ActiveNavElement}`}><img src={`${eventsIcon}`} alt={'icon'}/>Events</button>
+                    <button onClick={()=> handleClick('ABOUTUS')}  className={`${styles.NavElement} navElementAnimation ${props.onFocusSection === 'ABOUTUS' && styles.ActiveNavElement}`}><img src={`${aboutUsIcon}`} alt={'icon'}/>About us</button>
+                    <Link  to={'mailto:info@tucfriends.com'} className={`${styles.NavElement} navElementAnimation`}><img src={`${connectIcon}`} alt={'icon'}/>Connect</Link>
                 </div>
                 <div className={`${styles.SocialMediaDiv}`}>
-                    <p>Follow us</p>
-                    <div className={`${styles.socialMediaList}`}>
-                        <Link  to={'https://www.facebook.com/friendsoftuchemnitz/?locale=de_DE'} target="_blank" rel="noopener noreferrer" ><img style={{width: '2rem'}} className={`${styles.socialMediaImg}`} src={`${facebookIcon}`} alt={'icon'} /></Link>
+                    <p className={'followUsAnimation'}>Follow us</p>
+                    <div className={`socialAnimation ${styles.socialMediaList}`}>
+                        <Link  to={'https://www.facebook.com/friendsoftuchemnitz/?locale=de_DE'} target="_blank" rel="noopener noreferrer" ><img style={{width: '1.5rem'}} className={`${styles.socialMediaImg}`} src={`${facebookIcon}`} alt={'icon'} /></Link>
                         <Link  to={'https://www.instagram.com/tucfriends?utm_source=ig_web_button_share_sheet&igsh=OGQ5ZDc2ODk2ZA=='} target="_blank" rel="noopener noreferrer" ><img className={`${styles.socialMediaImg}`} src={`${instagramIcon}`} alt={'icon'} /></Link>
                         <Link  to={'https://t.me/+xbR2GLVQxfA5NDhi'} target="_blank" rel="noopener noreferrer" ><img className={`${styles.socialMediaImg}`} src={`${telegramIcon}`} alt={'icon'} /></Link>
                     </div>

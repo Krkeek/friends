@@ -4,7 +4,6 @@ import HomePage from "./components/homePage/homePage";
 import ContactPage from "./components/homePage/contactPage/contactPage";
 import WelcomePage from "./components/welcomePage/welcomePage";
 import LoginPage from "./auth/loginPage/loginPage";
-
 function App() {
 
     return (

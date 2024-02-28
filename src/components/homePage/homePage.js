@@ -1,5 +1,5 @@
 
-import {useContext, useEffect, useState} from "react";
+import {useContext, useEffect, useRef, useState} from "react";
 import SideBar from "../common/sideBar/sideBar";
 import styles from './homePage.module.css'
 import EventPage from "./eventPage/eventPage";
@@ -10,7 +10,18 @@ import EventDescription from "./eventPage/event/eventDescription/eventDescriptio
 import {checkAuthentication} from "../../auth/authentication";
 import {authUserContext} from "../../auth/authUserContext";
 import AddEventPage from "./eventPage/addEventPage/addEventPage";
+import {useGSAP} from "@gsap/react";
+import {homePageAnimation} from "../../animations/homePage";
+
 export default function HomePage(){
+
+    const animationRef = useRef();
+
+
+    useGSAP(()=>{
+        homePageAnimation()
+    },{scope: animationRef})
+
 
     const [onFocusSection, setOnFocusSection] = useState('EVENTS');
     const [onFocusEvent, setOnFocusEvent] = useState({})
@@ -22,7 +33,6 @@ export default function HomePage(){
         setOnFocusSection('EVENT_DESCRIPTION');
 
     }
-
 
     useEffect(() => {
         checkAuthentication()
@@ -36,23 +46,25 @@ export default function HomePage(){
     }, []);
 
     return(
-        <>
-            <div className={`${styles.Container}`}>
-                <div className={`${styles.LeftSide}`}>
-                    <SideBar setOnFocusSectionFn={setOnFocusSectionFn} />
+        <div ref={animationRef}>
+
+                <div className={`${styles.Container} homePageAnimation`}>
+                    <div className={`${styles.LeftSide}`}>
+                        <SideBar onFocusSection={onFocusSection} setOnFocusSectionFn={setOnFocusSectionFn}/>
+                    </div>
+                    <div className={`${styles.RightSide}`}>
+
+                        {onFocusSection === 'HOME' && <WelcomePage/>}
+                        {onFocusSection === 'EVENTS' && <EventPage handleDescriptionPageData={handleDescriptionPageData}
+                                                                   setOnFocusSection={setOnFocusSectionFn}/>}
+                        {onFocusSection === 'ABOUTUS' && <AboutUsPage/>}
+                        {onFocusSection === 'CONNECT' && <ContactPage/>}
+                        {onFocusSection === 'EVENT_DESCRIPTION' &&
+                            <EventDescription data={onFocusEvent} setOnFocusSection={setOnFocusSectionFn}/>}
+                        {onFocusSection === 'ADD_EVENT' && <AddEventPage setOnFocusSection={setOnFocusSectionFn}/>}
+
+                    </div>
                 </div>
-                <div className={`${styles.RightSide}`}>
-
-                    {onFocusSection === 'HOME' && <WelcomePage />}
-                    {onFocusSection === 'EVENTS' && <EventPage  handleDescriptionPageData={handleDescriptionPageData} setOnFocusSection={setOnFocusSectionFn} />}
-                    {onFocusSection === 'ABOUTUS' && <AboutUsPage />}
-                    {onFocusSection === 'CONNECT' && <ContactPage />}
-                    {onFocusSection === 'EVENT_DESCRIPTION' && <EventDescription data={onFocusEvent} setOnFocusSection={setOnFocusSectionFn} />}
-                    {onFocusSection === 'ADD_EVENT' && <AddEventPage setOnFocusSection={setOnFocusSectionFn} />}
-
-
-                </div>
-            </div>
-        </>
+        </div>
     );
 }

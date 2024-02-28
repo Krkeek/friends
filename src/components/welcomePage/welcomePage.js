@@ -2,24 +2,38 @@ import styles from './welcomePage.module.css'
 import logo from '../../assets/logo.png'
 import arrowRight from '../../assets/arrowRight.png'
 import {Link} from "react-router-dom";
+import {gsap} from "gsap";
+import { useGSAP } from "@gsap/react";
+import {useRef} from "react";
+import { TextPlugin } from "gsap/TextPlugin";
+import {welcomePageAnimation} from "../../animations/welcomePage";
+gsap.registerPlugin(TextPlugin);
+
 const WelcomePage = ()=> {
+
+    const animationScope = useRef();
+
+
+    useGSAP(()=>{
+        welcomePageAnimation();
+    },{scope: animationScope })
+
     return(
-        <>
-            <div className={`${styles.Container}`}>
-                <div className={`${styles.Section}`}>
+        <div ref={animationScope}>
+            <div className={`${styles.Container} bgImgAnimation`}>
+                <div className={`${styles.Section} `}>
                     <div className={`${styles.LogoDiv}`}>
-                        <img src={`${logo}`} alt={'logo'} />
+                        <img className={'logoAnimation'} src={`${logo}`} alt={'logo'} />
 
                     </div>
-                    <div className={`${styles.DescriptionDiv}`}>
-                        Join us at FRIENDS, where we cultivate a vibrant community through engaging weekly meetings on thought-provoking topics, fostering meaningful connections and enriching your university experience
+                    <div className={`${styles.DescriptionDiv} descriptionAnimation`}>
                     </div>
-                    <Link className={`${styles.EventLink}`} to={'/homePage'}>Events<img src={`${arrowRight}`} alt={'arrowRight'} /></Link>
+                    <Link className={`${styles.EventLink} buttonAnimation`} to={'/homePage'}>Events<img className={`${styles.arrow}`} src={`${arrowRight}`} alt={'arrowRight'} /></Link>
 
                 </div>
 
             </div>
-        </>
+        </div>
     );
 }
 export default WelcomePage

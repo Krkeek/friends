@@ -10,6 +10,8 @@ import tickIcon from '../../../../../assets/eventDescriptionPage/tick.png'
 import discardIcon from '../../../../../assets/eventDescriptionPage/cross.png'
 import {convertDateBack, convertedDateFormat} from "../../../../utils/dateObjectConverter";
 import {editData} from "../../../../utils/editData";
+import {useMutation, useQueryClient} from "@tanstack/react-query";
+import {isValid} from "../../../../utils/isValid";
 
 
 const EventDescription = (props)=> {
@@ -21,19 +23,43 @@ const EventDescription = (props)=> {
     const [title,setTitle] = useState(props.data.title);
     const [date,setDate] = useState(props.data.date);
     const [description,setDescription] = useState(props.data.description);
+    const [errors, setErrors] = useState("");
+
+    const queryClient = useQueryClient();
+    const  {mutateAsync, isPending} = useMutation({
+        mutationFn: () => editData(thumbnailFile,title,date,description,props.data.title,props.data.titleImageURL),
+        onSuccess: () => {
+            queryClient.invalidateQueries(["fetchData"])
+            props.setOnFocusSection('EVENTS');
+        }
+    })
+
+
+    if (isPending){
+        return (
+            <div className={`${styles.isPending}`}>
+                Editing the data...
+            </div>
+        )
+    }
+
+
 
     const closeAlertBox = ()=> setOpenAlertBox(false)
 
     const handleDeleteButton = ()=> {
         setOpenAlertBox(true);
     }
-    const handleSaveEditButton = ()=> {
-        editData(thumbnailFile,title,date,description,props.data.title,props.data.titleImageURL).then(
-            ()=>{
-                props.setOnFocusSection('EVENTS');
-            }
-        )
+    const handleSaveEditButton = async () => {
+        if (isValid(thumbnailFile, title, date)) {
+            await mutateAsync();
+        } else {
+            setErrors("*Missing data, try again.")
+
         }
+
+    }
+
 
     return(
         <>
@@ -49,18 +75,22 @@ const EventDescription = (props)=> {
 
                 {
                     currentUser !== null
-                        && (
-                            <div className={`${styles.AdminDiv}`}>
-                                <button onClick={()=> setEditMode(!editMode)} className={`${styles.AdminButtons}`}>{editMode ? 'Discard' : 'Edit'}<img src={`${editMode ? discardIcon : editIcon}`} alt={'img'} /></button>
+                    && (
+                        <div className={`${styles.AdminDiv}`}>
+                            <button onClick={() => setEditMode(!editMode)}
+                                    className={`${styles.AdminButtons}`}>{editMode ? 'Discard' : 'Edit'}<img
+                                src={`${editMode ? discardIcon : editIcon}`} alt={'img'}/></button>
 
-                                {
-                                    editMode
-                                        ?<button onClick={handleSaveEditButton} className={`${styles.AdminButtons}`}>Save<img src={`${tickIcon}`} alt={'img'}/></button>
-                                        :<button onClick={handleDeleteButton} className={`${styles.AdminButtons}`}>Delete<img src={`${deleteIcon}`} alt={'img'}/></button>
+                            {
+                                editMode
+                                    ? <button onClick={handleSaveEditButton} className={`${styles.AdminButtons}`}>Save<img
+                                        src={`${tickIcon}`} alt={'img'}/></button>
+                                    : <button onClick={handleDeleteButton} className={`${styles.AdminButtons}`}>Delete<img
+                                        src={`${deleteIcon}`} alt={'img'}/></button>
 
-                                }
+                            }
 
-                            </div>
+                        </div>
                     )
 
                 }
@@ -80,14 +110,18 @@ const EventDescription = (props)=> {
                         </div>
                         : <p className={`${styles.Title}`}>
                             <button className={`${styles.TitleButton}`} onClick={() => props.setOnFocusSection('EVENTS')}>
-                                <img src={`${arrowBack}`} alt={'arrowBack'}/></button>{props.data.title}</p>
+                                <img src={`${arrowBack}`} alt={'arrowBack'}/></button>
+                            {props.data.title}</p>
 
 
                 }
                 {
 
                     editMode
-                        ? <div><input  onChange={(event)=> setDate(convertedDateFormat(event.target.value))} type={'date'}  defaultValue={convertDateBack(props.data.date)} className={`${styles.DateEdit} ${styles.Date}`}/></div>
+                        ?
+                        <div><input onChange={(event) => setDate(convertedDateFormat(event.target.value))} type={'date'}
+                                    defaultValue={convertDateBack(props.data.date)}
+                                    className={`${styles.DateEdit} ${styles.Date}`}/></div>
                         : <p className={`${styles.Date}`}>{props.data.date}</p>
 
 
@@ -95,12 +129,15 @@ const EventDescription = (props)=> {
 
                 {
                     editMode
-                        ? <div><textarea  onChange={(event)=> setDescription(event.target.value)} defaultValue={props.data.description} className={`${styles.DescriptionEdit} ${styles.Description}`}/></div>
+                        ? <div><textarea onChange={(event) => setDescription(event.target.value)}
+                                         defaultValue={props.data.description}
+                                         className={`${styles.DescriptionEdit} ${styles.Description}`}/></div>
                         : <p className={`${styles.Description}`}>{props.data.description}</p>
 
                 }
-
+                <div>{errors}</div>
             </div>
+
             <div className={`${styles.GallerySection}`}>
 
             </div>

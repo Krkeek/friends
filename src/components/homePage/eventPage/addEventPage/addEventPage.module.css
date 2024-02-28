@@ -10,7 +10,7 @@
 .ButtonsDiv {
     display: flex;
     justify-content: space-between;
-    width: 30%;
+    width: 40%;
 }
 
 .ButtonsDiv button {
@@ -20,6 +20,7 @@
     font-size: 1.3rem;
     padding: 0.3rem 1.2rem;
     margin-bottom: 10vh;
+    transition: background-color 300ms linear;
 
 }
 .ButtonsDiv button img {
@@ -27,11 +28,16 @@
     margin-left: 0.5rem;
 }
 
+.ButtonsDiv button:hover {
+    transition: background-color 300ms linear;
+    background-color: #e9f1ff ;
+}
+
 .thumbnailInput {
     border-radius: 10px;
     background: #F0F3F8;
     border: none;
-    font-size: 1.3rem;
+    font-size: 0.9rem;
     font-weight: 700;
     display: flex;
     margin-bottom: 1rem;
@@ -50,7 +56,7 @@
     border: 3px solid #DAE0EC;
     background: #FFF;
     width: 15vw;
-    height: 4vh;
+    height: 6vh;
     margin-bottom: 1rem;
     padding-left: 1rem;
     font-size: 1.2rem;
@@ -59,4 +65,10 @@
 .DateDesign {
     padding-right: 1rem;
     color: rgba(0, 0, 0, 0.54);
+}
+
+.isPending {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 3rem;
 }

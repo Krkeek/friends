@@ -22,20 +22,33 @@
 
 .DescriptionDiv {
     color: #FFF;
-    font-size: 2rem;
+    font-size: 1.4rem;
     font-weight: 400;
     letter-spacing: 1px;
     margin-bottom: 2.5rem;
+    min-height: 15vh;
 }
 .EventLink{
-    padding: 1rem 2.5rem;
+    padding: 1rem 1.5rem;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-decoration: none;
     border: 2px solid white;
+    background-color: transparent;
+    transition: background-color 0.2s linear, color 0.2s linear;
 
 }
 .EventLink img {
     width: 2.5rem;
 
 }
+
+.EventLink:hover{
+    background-color: white;
+    color: black;
+    transition: background-color 0.2s linear, color 0.2s linear;
+    img {
+        filter: brightness(0);
+    }
+}
+

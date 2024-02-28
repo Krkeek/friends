@@ -4,6 +4,9 @@ import tickIcon from '../../../../assets/eventDescriptionPage/tick.png'
 import {useState} from "react";
 import {addData} from "../../../utils/addData";
 import {convertedDateFormat} from "../../../utils/dateObjectConverter";
+import {useMutation, useQueryClient} from "@tanstack/react-query";
+import {isValid} from "../../../utils/isValid";
+
 
 const AddEventPage = (props)=> {
 
@@ -11,11 +14,35 @@ const AddEventPage = (props)=> {
     const [title,setTitle] = useState('');
     const [date,setDate] = useState('');
     const [description,setDescription] = useState('');
+    const queryClient = useQueryClient();
+    const [errors, setErrors] = useState("");
 
-    const handleSaveData = ()=> {
-        addData(thumbnailFile,title,date,description).then(()=>{
-            props.setOnFocusSection('EVENTS');
-        })
+    const { mutateAsync, isPending} = useMutation({
+        mutationFn: () => addData(thumbnailFile, title, date, description),
+        onSuccess: () => {
+            queryClient.invalidateQueries(["fetchData"])
+
+        }
+    })
+
+    if (isPending){
+        return(
+            <>
+                <div className={`${styles.isPending}`}>
+                    Adding the event...
+                </div>
+            </>
+        )
+    }
+
+    const handleSaveData = async () => {
+        if (isValid(thumbnailFile,title,date)){
+            await mutateAsync();
+            props.setOnFocusSection('EVENTS')
+        }
+        else {
+            setErrors("*Missing data, try again.")
+        }
     }
 
     return(
@@ -30,7 +57,8 @@ const AddEventPage = (props)=> {
                 <input className={`${styles.InputDesign}`} type={'text'} onChange={(event)=> setTitle(event.target.value)} placeholder={'Add title'}/>
                 <input className={`${styles.InputDesign} ${styles.DateDesign}`} type={'date'} onChange={(event)=> setDate(convertedDateFormat(event.target.value))} placeholder={'Add date'}/>
                 <textarea className={`${styles.InputDesign}`} onChange={(event)=> setDescription(event.target.value)} placeholder={'Add description'}></textarea>
-                <div className={`${styles.AddPhotosDiv}`}></div>
+                <div className={`${styles.Errors}`}></div>
+                <div className={`${styles.AddPhotosDiv}`}>{errors}</div>
 
 
             </div>

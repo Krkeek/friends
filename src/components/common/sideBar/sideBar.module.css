@@ -11,7 +11,7 @@
 
 }
 .LogoDiv img {
-    width: 14vw;
+    width: 12vw;
 
 }
 
@@ -22,7 +22,7 @@
 }
 .NavElement {
     width: 100%;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 400;
     letter-spacing: 2px;
     color: rgba(0, 0, 0, 0.50);
@@ -35,9 +35,14 @@
 }
 
 .NavElement img {
-    width: 1.9rem;
+    width: 1.4rem;
     margin-right: 1rem;
     margin-bottom: 0.4rem;
+}
+
+
+.ActiveNavElement {
+    font-weight: 600;
 }
 
 .SocialMediaDiv {
@@ -47,7 +52,7 @@
 
 .SocialMediaDiv p {
     color: #000;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 400;
     letter-spacing: 2px;
     text-align: center;
@@ -63,5 +68,5 @@
 }
 
 .socialMediaImg {
-    width: 1.8rem;
+    width: 1.3rem;
 }

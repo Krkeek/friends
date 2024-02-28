@@ -21,9 +21,9 @@ const Event = (props)=> {
 
     return(
         <>
-            <div className={`${styles.Container}  ${props.recentEvent && styles.recentContainer}`}>
+            <div className={`${styles.Container} eventAnimation  ${props.recentEvent && styles.recentContainer}`}>
                 <div className={`${styles.LeftSide}  ${props.recentEvent && styles.recentLeftSide}`}>
-                    <img src={imgUrl} alt={'thumbnail'} className={`${styles.ThumbnailImg}`} />
+                    <img loading={"lazy"} src={imgUrl} alt={'thumbnail'} className={`${styles.ThumbnailImg}`} />
                 </div>
                 <div className={`${styles.RightSide}  ${props.recentEvent && styles.recentRightSide}`}>
                     <p className={`${styles.Title}`}>{props.data?.title}</p>

@@ -1,5 +1,5 @@
 import styles from './loginPage.module.css'
-import loginImg from '../../assets/loginImg.png'
+import loginImg from '../../assets/loginImg.webp'
 import {Link} from "react-router-dom";
 import {useContext, useState} from "react";
 import {signInUser} from "../authentication";
@@ -35,9 +35,9 @@ const LoginPage = ()=> {
                         <p className={`${styles.Header}`}>Welcome Back</p>
                         <p className={`${styles.Subtitle}`}>Hello there! please enter your details </p>
                         <p className={`${styles.Label}`}>Email</p>
-                        <input placeholder={'Enter your email'} className={`${styles.Input}`} onChange={(event)=> setEmail(event.target.value)}/>
+                        <input type={"email"} placeholder={'Enter your email'} className={`${styles.Input}`} onChange={(event)=> setEmail(event.target.value)}/>
                         <p className={`${styles.Label}`}>Password</p>
-                        <input placeholder={'Enter your password'} className={`${styles.Input}`}  onChange={(event)=> setPassword(event.target.value)}/>
+                        <input type={"password"} placeholder={'Enter your password'} className={`${styles.Input}`}  onChange={(event)=> setPassword(event.target.value)}/>
                         <div>
                             <button onClick={handleLoginButton} className={`${styles.LoginButton}`}>Log in</button>
                         </div>

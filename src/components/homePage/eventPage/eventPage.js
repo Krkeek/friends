@@ -1,30 +1,32 @@
 import styles from './eventPage.module.css'
 import TopBar from "../../common/topBar/topBar";
 import Event from "./event/event";
-import {useContext, useEffect, useState} from "react";
+import {useContext} from "react";
 import {fetchData} from "../../utils/fetchData";
-import {sortData} from "../../utils/dateObjectConverter";
 import {authUserContext} from "../../../auth/authUserContext";
 import plusEventIcon from '../../../assets/itemPlus.png'
+import {useQuery} from "@tanstack/react-query";
 const EventPage = (props)=> {
-    const [data,setData] = useState(null);
-    const {currentUser} = useContext(authUserContext)
+    const {currentUser} = useContext(authUserContext);
+    const {data, isLoading} = useQuery({
+        queryFn: () => fetchData(),
+        queryKey: ["fetchData"]
+    })
 
-    useEffect( () => {
-        fetchData().then(data =>{
-            setData(data);
-            let sortedEvents = sortData(data);
-            setData(sortedEvents)
-
-        })
-    }, []);
+    if (isLoading){
+            return (
+                <>
+                    <div className={`${styles.LoadingContainer}`}><p>Events is loading...</p></div>
+                </>
+                )
+    }
 
     return(
         <>
         <div className={`${styles.Container}`}>
             <TopBar />
-            <div style={{display: "block"}} className={`${styles.HightLightedEventsDiv}`}>
-                <p className={`${styles.RecentEventTitle}`}>Recent Event</p>
+            <div style={{display: "block"}} className={`${styles.HightLightedEventsDiv} hightLightedEventsAnimation`}>
+                <p className={`${styles.RecentEventTitle} highLightedTitleAnimation`}>Recent Event</p>
                 {
                     currentUser === null
                     ?<Event recentEvent={true}  setOnFocusSection={props.setOnFocusSection} data={data && data[0]} handleDescriptionPageData={props.handleDescriptionPageData} />

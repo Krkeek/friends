@@ -87,34 +87,6 @@ const EventModal = (props)=>{
     }
 
 
-
-    {/*
-        const getCropData = async () => {
-        if (cropper) {
-            const file = await fetch(cropper.getCroppedCanvas().toDataURL())
-                .then((res) => res.blob())
-                .then((blob) => {
-                    return new File([blob], "newAvatar.png", { type: "image/png" });
-                });
-            if (file) {
-                authService
-                    .uploadAvatar(userId, file)
-                    .then(() => {
-                        refetchUser(userId);
-                        cancelEdit();
-                    })
-                    .catch((e) => alert(e));
-            }
-        }
-    };
-
-
-    */}
-
-
-
-
-
     return(
         <>
             <div className={styles.modal}>

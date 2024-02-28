@@ -17,7 +17,7 @@ const TopBar = ()=> {
 
     return(
         <>
-            <div className={`${styles.Container}`}>
+            <div className={`${styles.Container} topBarContainerAnimation`}>
                 <div className={`${styles.LeftSide}`}>
                     <input placeholder={'Search'}/>
 
@@ -25,8 +25,8 @@ const TopBar = ()=> {
                 <div className={`${styles.RightSide}`}>
                     {
                         currentUser === null
-                            ? <Link className={`${styles.LoginButton}`} to={'/loginPage'}>Login<img src={`${loginIcon}`} alt={'icon'} /></Link>
-                            : <Link onClick={handleLogoutButton} className={`${styles.LoginButton}`} to={'#'}>Logout<img src={`${logoutIcon}`} alt={'icon'} /></Link>
+                            ? <Link className={`${styles.LoginButton} buttonAnimation`} to={'/loginPage'}>Login<img src={`${loginIcon}`} alt={'icon'} /></Link>
+                            : <Link onClick={handleLogoutButton} className={`${styles.LoginButton} buttonAnimation`} to={'#'}>Logout<img src={`${logoutIcon}`} alt={'icon'} /></Link>
                     }
                         </div>
 

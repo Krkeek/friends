@@ -24,7 +24,7 @@
 
 }
 .AlertSentence {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     line-height: 100%;
 }
 
@@ -40,7 +40,14 @@
 .AlertButtons button {
     border-radius: 10px;
     background: #F0F3F8;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     padding: 0.1rem 1.2rem;
     border: none;
+    transition: background-color 300ms linear;
+}
+
+
+.AlertButtons button:hover {
+    transition: background-color 300ms linear;
+    background-color: #e9f1ff ;
 }

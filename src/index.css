@@ -2,15 +2,13 @@
   font-family: 'fira Sans';
   src: url('./assets/fonts/Fira_Sans/FiraSans-Regular.ttf');
 }
-html {
-  height: auto;
-}
 body {
   font-family: "Baloo 2", sans-serif !important;
 }
 
-
-
 .PageSection{
   height: 100vh;
+}
+::-webkit-scrollbar {
+  display: none;
 }
