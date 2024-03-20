@@ -42,7 +42,7 @@ const SideBar = (props)=> {
                     <Link  className={`${styles.NavElement} navElementAnimation`} to={'/welcomePage'}><img src={`${homeIcon}`} alt={'icon'}/><div className={`${styles.elementNames}`}>Home</div></Link>
                     <button onClick={()=> handleClick('EVENTS')}  className={`${styles.NavElement} navElementAnimation ${props.onFocusSection === 'EVENTS' && styles.ActiveNavElement}`}><img className={`${``}`} src={`${eventsIcon}`} alt={'icon'}/><div className={`${styles.elementNames}`}>Events</div></button>
                     <button onClick={()=> handleClick('ABOUTUS')}  className={`${styles.NavElement} navElementAnimation ${props.onFocusSection === 'ABOUTUS' && styles.ActiveNavElement}`}><img className={`${``}`} src={`${aboutUsIcon}`} alt={'icon'}/><div className={`${styles.elementNames}`}>About us</div></button>
-                    <Link to={'mailto:info@tucfriends.com'} className={`${styles.NavElement} navElementAnimation`}><img className={`${``}`} src={`${connectIcon}`} alt={'icon'}/><div className={`${styles.elementNames}`}>Connect</div></Link>
+                    <Link to={'mailto:ahmadhijazi_me@hotmail.com'} className={`${styles.NavElement} navElementAnimation`}><img className={`${``}`} src={`${connectIcon}`} alt={'icon'}/><div className={`${styles.elementNames}`}>Connect</div></Link>
                 </div>
                 <div className={`${styles.SocialMediaDiv}`}>
                     <p className={'followUsAnimation'}>Follow us</p>

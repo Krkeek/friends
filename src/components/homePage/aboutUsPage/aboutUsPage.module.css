@@ -48,6 +48,7 @@
 @media screen and (max-width: 767px) {
 
 
+
     .Title {
         font-size: 2rem;
         text-align: center;
@@ -62,6 +63,7 @@
         display: flex;
         flex-flow: column;
         align-items: center;
+        padding-top: 1rem;
     }
 
     .LoginButton {

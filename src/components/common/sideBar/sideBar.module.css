@@ -86,10 +86,6 @@
 @media screen and (max-width: 767px){
     /*Mobile*/
     .Container {
-        z-index: 1;
-        position: fixed;
-        top: 0;
-        left: 0;
         width: 100vw;
         height: 9vh;
         background: white;
@@ -112,6 +108,7 @@
         padding: 0;
         height: inherit;
         flex-flow: row;
+
     }
     .NavElement {
         padding: 0;
@@ -134,3 +131,4 @@
 
 
 }
+

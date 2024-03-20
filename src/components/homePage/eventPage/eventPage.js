@@ -28,7 +28,7 @@ const EventPage = (props)=> {
             return (
                 <div ref={animationRef}>
                     <div className={'titleAnimation'}></div>
-                    <div className={`${styles.LoadingContainer}`}><p>Events is loading...</p></div>
+                    <div className={`${styles.LoadingContainer}`}><p>Events are loading...</p></div>
                 </div>
                 )
     }
