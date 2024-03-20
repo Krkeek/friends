@@ -1,11 +1,10 @@
 import {db, storage} from "../../firebase";
 import {deleteDoc, where, collection, query, getDocs} from "firebase/firestore";
 import {deleteObject, ref} from "firebase/storage";
+import {isUnique} from "./isUnique";
 
 
 export const deleteData = async (dataToDelete) => {
-
-
     const eventRef = collection(db,'events');
     const q = query(eventRef, where('title', '==', dataToDelete.title));
     const querySnapshot = await getDocs(q);

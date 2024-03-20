@@ -1,7 +1,6 @@
 .Container {
     display: flex;
     height: 100vh;
-    overflow: hidden;
 
 }
 .LeftSide {
@@ -60,8 +59,6 @@
     border: 1px solid transparent;
     transition: background-color 200ms linear, color 200ms linear, border-color 200ms linear;
 
-
-
 }
 
 .LoginButton:hover {
@@ -81,4 +78,59 @@
 .HomePageButton:hover {
     border-bottom: 2px solid black;
     transition: border-bottom-color 0.5s linear;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    /*Tablet*/
+
+}
+
+
+@media screen and (max-width: 767px) {
+    /*Mobile*/
+    .RightSide {
+        display: none;
+    }
+    .LeftSide {
+        width: 100%;
+    }
+    .FormContainer {
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+
+    }
+    .Header {
+        text-align: center;
+    }
+    .Subtitle {
+        text-align: center;
+    }
+    .Label {
+        width: 80%;
+
+    }
+
+    .Input {
+        width: 80%;
+        height: 2.8rem;
+        border-radius: 10px;
+        border: 2px solid #DAE0EC;
+        margin: 0 auto 2rem;
+        padding-left: 1rem;
+    }
+
+    .LoginButton {
+        width: 100%;
+        color: #FFF;
+        padding: 0.5rem 0;
+        margin-bottom: 1rem;
+
+    }
+    .ButtonDiv{
+        width: 80%;
+    }
+
+
 }

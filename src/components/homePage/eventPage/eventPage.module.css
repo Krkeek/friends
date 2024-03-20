@@ -12,7 +12,6 @@
     padding-left:5rem;
     justify-content: space-between;
     margin-bottom: 2rem;
-
 }
 
 .Title {
@@ -82,4 +81,65 @@
     font-size: 1.5rem;
     font-weight: 400;
     margin: 3rem;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    /*Tablet*/
+
+}
+
+
+@media screen and (max-width: 767px){
+    /*Mobile*/
+
+    .Container {
+        padding-bottom: 2rem;
+    }
+    .RecentEventTitle {
+        padding: 0 0 1rem 0;
+        text-align: center;
+        font-size: 1.8rem;
+        margin: 12vh 0 0 0;
+    }
+    .Container {
+        padding: 0;
+    }
+    .Title {
+        font-size: 1.3rem;
+        line-height: 1;
+
+    }
+
+    .TitleDiv {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        padding-left: 2rem;
+        padding-top: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .Line {
+        width: 60%;
+        height: 2px;
+        background: #F0F3F8;
+    }
+
+    .LoadingContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: transparent;
+
+    }
+
+    .LoadingContainer p {
+        font-size: 1rem;
+        font-weight: 400;
+        margin: 3rem;
+    }
+
+
+
 }

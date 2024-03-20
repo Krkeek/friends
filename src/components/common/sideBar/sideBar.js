@@ -1,12 +1,12 @@
 import styles from './sideBar.module.css'
 import logo from '../../../assets/logoBlack.png'
-import homeIcon from '../../../assets/sideBarIcons/home.png'
-import eventsIcon from '../../../assets/sideBarIcons/events.png'
-import aboutUsIcon from '../../../assets/sideBarIcons/aboutus.png'
-import connectIcon from '../../../assets/sideBarIcons/connect.png'
-import facebookIcon from '../../../assets/sideBarSocialMedia/facebook.png'
-import instagramIcon from '../../../assets/sideBarSocialMedia/instagram.png'
-import telegramIcon from '../../../assets/sideBarSocialMedia/telegram.png'
+import homeIcon from '../../../assets/sideBarIcons/home.webp'
+import eventsIcon from '../../../assets/sideBarIcons/events.webp'
+import aboutUsIcon from '../../../assets/sideBarIcons/aboutus.webp'
+import connectIcon from '../../../assets/sideBarIcons/connect.webp'
+import facebookIcon from '../../../assets/sideBarSocialMedia/facebook.webp'
+import instagramIcon from '../../../assets/sideBarSocialMedia/instagram.webp'
+import telegramIcon from '../../../assets/sideBarSocialMedia/telegram.webp'
 
 import {Link} from "react-router-dom";
 import {useGSAP} from "@gsap/react";
@@ -15,7 +15,6 @@ import {useRef} from "react";
 
 
 const SideBar = (props)=> {
-
     const animationRef = useRef();
 
     useGSAP(()=>{
@@ -40,10 +39,10 @@ const SideBar = (props)=> {
                     <img src={`${logo}`} alt={'logo'} />
                 </div>
                 <div className={`${styles.NavElementsDiv}`}>
-                    <Link  className={`${styles.NavElement} navElementAnimation`} to={'/welcomePage'}><img src={`${homeIcon}`} alt={'icon'}/>Home</Link>
-                    <button onClick={()=> handleClick('EVENTS')}  className={`${styles.NavElement} navElementAnimation ${props.onFocusSection === 'EVENTS' && styles.ActiveNavElement}`}><img src={`${eventsIcon}`} alt={'icon'}/>Events</button>
-                    <button onClick={()=> handleClick('ABOUTUS')}  className={`${styles.NavElement} navElementAnimation ${props.onFocusSection === 'ABOUTUS' && styles.ActiveNavElement}`}><img src={`${aboutUsIcon}`} alt={'icon'}/>About us</button>
-                    <Link  to={'mailto:info@tucfriends.com'} className={`${styles.NavElement} navElementAnimation`}><img src={`${connectIcon}`} alt={'icon'}/>Connect</Link>
+                    <Link  className={`${styles.NavElement} navElementAnimation`} to={'/welcomePage'}><img src={`${homeIcon}`} alt={'icon'}/><div className={`${styles.elementNames}`}>Home</div></Link>
+                    <button onClick={()=> handleClick('EVENTS')}  className={`${styles.NavElement} navElementAnimation ${props.onFocusSection === 'EVENTS' && styles.ActiveNavElement}`}><img className={`${``}`} src={`${eventsIcon}`} alt={'icon'}/><div className={`${styles.elementNames}`}>Events</div></button>
+                    <button onClick={()=> handleClick('ABOUTUS')}  className={`${styles.NavElement} navElementAnimation ${props.onFocusSection === 'ABOUTUS' && styles.ActiveNavElement}`}><img className={`${``}`} src={`${aboutUsIcon}`} alt={'icon'}/><div className={`${styles.elementNames}`}>About us</div></button>
+                    <Link to={'mailto:info@tucfriends.com'} className={`${styles.NavElement} navElementAnimation`}><img className={`${``}`} src={`${connectIcon}`} alt={'icon'}/><div className={`${styles.elementNames}`}>Connect</div></Link>
                 </div>
                 <div className={`${styles.SocialMediaDiv}`}>
                     <p className={'followUsAnimation'}>Follow us</p>

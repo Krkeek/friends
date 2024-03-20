@@ -35,9 +35,13 @@ const Event = (props)=> {
             <div className={`${styles.Container} eventAnimation  ${props.recentEvent && styles.recentContainer}`}>
                 <div className={`${styles.LeftSide}  ${props.recentEvent && styles.recentLeftSide}`}>
                     <img loading={"lazy"} src={imgUrl} alt={'thumbnail'} className={`${styles.ThumbnailImg}`} />
+                    <div className={`${styles.OverLay}`}>
+                        <p className={`${styles.Title}`}>{props.data?.title}</p>
+                        <p className={`${styles.Date}`}>{props.data?.date}</p>
+                    </div>
                 </div>
                 <div className={`${styles.RightSide}  ${props.recentEvent && styles.recentRightSide}`}>
-                    <p className={`${styles.Title}`}>{props.data?.title}</p>
+                <p className={`${styles.Title}`}>{props.data?.title}</p>
                     <p className={`${styles.Date}`}>{props.data?.date}</p>
                     <p className={`${styles.Description}  ${props.recentEvent && styles.recentDescription}`}>{briefDescription}</p>
                     <button onClick={()=> props.handleDescriptionPageData(props.data)} className={`${styles.SeeMoreButton}`}>See more</button>

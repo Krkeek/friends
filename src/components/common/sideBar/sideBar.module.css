@@ -16,22 +16,25 @@
 }
 
 .NavElementsDiv{
-    width: 100%;
     margin-top: 2.5rem;
     height: 65vh;
+    display: flex;
+    flex-flow: column;
 }
 .NavElement {
-    width: 100%;
     font-size: 1.3rem;
     font-weight: 400;
     letter-spacing: 2px;
     color: rgba(0, 0, 0, 0.50);
     background-color: transparent;
     border: none;
+    padding: 0.5rem 0;
+    min-width: 55%;
+    margin: 0 auto;
     display: flex;
     align-items: center;
-    padding: 1rem 0 1rem 4.5rem;
     text-decoration: none;
+
 }
 
 .NavElement img {
@@ -69,4 +72,65 @@
 
 .socialMediaImg {
     width: 1.3rem;
+}
+
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    /*Tablet*/
+
+}
+
+
+@media screen and (max-width: 767px){
+    /*Mobile*/
+    .Container {
+        z-index: 1;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 9vh;
+        background: white;
+        padding: 0;
+        display: flex;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+    }
+    .LogoDiv {
+        display: none;
+    }
+    .SocialMediaDiv {
+        display: none;
+    }
+
+    .NavElementsDiv {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        height: inherit;
+        flex-flow: row;
+    }
+    .NavElement {
+        padding: 0;
+        margin: 0 auto;
+        min-width: fit-content;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+
+    }
+
+    .elementNames{
+        display: none;
+    }
+
+    .NavElement img {
+        margin: 0;
+        width: 1.6rem;
+    }
+
+
 }

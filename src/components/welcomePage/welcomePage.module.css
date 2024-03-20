@@ -1,12 +1,14 @@
 .Container {
     width: 100vw;
     height: 100vh;
+    max-height: 100vh;
     background-image: url("../../assets/BG.webp");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     display: flex;
     align-items: center;
+
 }
 .Section {
     width: 50vw;
@@ -52,3 +54,76 @@
     }
 }
 
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    /*Tablet*/
+
+}
+
+
+@media screen and (max-width: 767px){
+    /*Mobile*/
+
+    .navbarDiv{
+        display: block;
+    }
+
+    .Container {
+        background-image: url("../../assets/bgmobile.webp");
+        overflow: hidden;
+        max-height: 100vh;
+
+    }
+    .Section {
+        width: 100%;
+        margin: 0;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        overflow: hidden;
+
+    }
+
+    .LogoDiv {
+        margin: 0 auto;
+        width: 60%;
+    }
+
+    .LogoDiv img {
+        width: 100%;
+    }
+    .DescriptionDiv {
+        text-align: center;
+        font-size: 1.1rem;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .EventLink{
+        padding: 0.7rem;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.21);
+        -webkit-box-shadow: -1px -3px 12px 5px rgba(0,0,0,0.64);
+        box-shadow: -1px -3px 12px 5px rgba(0,0,0,0.64);
+        border: none;
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+
+
+
+    }
+    .EventLink img {
+        width: 1.5rem;
+        transform: rotate(90deg);
+
+    }
+    .EventLink span {
+        display: none;
+    }
+
+}

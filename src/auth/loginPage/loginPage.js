@@ -47,7 +47,7 @@ const LoginPage = ()=> {
                         <input type={"email"} placeholder={'Enter your email'} className={`${styles.Input}`} onChange={(event)=> setEmail(event.target.value)}/>
                         <p className={`${styles.Label}`}>Password</p>
                         <input type={"password"} placeholder={'Enter your password'} className={`${styles.Input}`}  onChange={(event)=> setPassword(event.target.value)}/>
-                        <div>
+                        <div className={`${styles.ButtonDiv}`}>
                             <button onClick={handleLoginButton} className={`${styles.LoginButton}`}>Log in</button>
                         </div>
                         <Link className={`${styles.HomePageButton}`} to={'/homePage'}>Back to Home Page</Link>

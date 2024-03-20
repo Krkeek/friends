@@ -2,7 +2,6 @@
 
 .Container {
     max-height: 100vh;
-    overflow: clip;
 }
 .Circle {
     position: fixed;
@@ -33,5 +32,54 @@
 .ContentContainer{
     width: 80%;
     padding: 15vh 2rem;
+
+}
+.LoginButton {
+    display: none;
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    /*Tablet*/
+
+}
+
+
+@media screen and (max-width: 767px) {
+
+
+    .Title {
+        font-size: 2rem;
+        text-align: center;
+    }
+    .Description {
+        font-size: 1rem;
+        text-align: center;
+
+    }
+    .ContentContainer {
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+
+    .LoginButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        border: 1px solid black;
+
+    }
+
+    .LoginButton img {
+        width: 1.2rem;
+    }
+
+
+
 
 }

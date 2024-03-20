@@ -6,6 +6,7 @@
     justify-content: space-between;
     padding: 0 3rem;
 
+
 }
 .LeftSide input {
     display: none;
@@ -39,5 +40,21 @@
 .LoginButton img {
     width: 1.5rem;
     margin-left: 0.5rem;
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    /*Tablet*/
+
+}
+
+
+@media screen and (max-width: 767px){
+/*Mobile*/
+
+    .Container {
+        display: none;
+    }
+
 
 }

@@ -27,7 +27,8 @@ const EventPage = (props)=> {
     if (isLoading){
             return (
                 <div ref={animationRef}>
-                    <div className={`${styles.LoadingContainer} titleAnimation`}><p>Events is loading...</p></div>
+                    <div className={'titleAnimation'}></div>
+                    <div className={`${styles.LoadingContainer}`}><p>Events is loading...</p></div>
                 </div>
                 )
     }
@@ -41,7 +42,7 @@ const EventPage = (props)=> {
                 {
                     currentUser === null
                     ?<Event recentEvent={true}  setOnFocusSection={props.setOnFocusSection} data={data && data[0]} handleDescriptionPageData={props.handleDescriptionPageData} />
-                    : <button onClick={()=> props.setOnFocusSection('ADD_EVENT')} className={`${styles.AddEventButton}`}>Add an event<img src={`${plusEventIcon}`} alt={'plus'} /></button>
+                    : <button onClick={()=> props.setOnFocusSection('ADD_EVENT')} className={`titleAnimation ${styles.AddEventButton}`}>Add an event<img src={`${plusEventIcon}`} alt={'plus'} /></button>
 
                 }
             </div>
