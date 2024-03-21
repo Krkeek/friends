@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Event = (props)=> {
 
+    const isMobile = window.innerWidth <= 768;
     const [imgUrl, setImgUrl] = useState(null);
     const [briefDescription, setBriefDescription] = useState('');
 
@@ -19,6 +20,11 @@ const Event = (props)=> {
         gsap.timeline()
             .fromTo('.eventAnimation',{opacity:0},{opacity:1, duration:2},"1")
     },{scope: animationRef})
+
+
+    const handleEventClick = ()=>{
+        isMobile && props.handleDescriptionPageData(props.data);
+    }
 
     useEffect(() => {
         if (props.data){
@@ -32,7 +38,7 @@ const Event = (props)=> {
 
     return(
         <div ref={animationRef}>
-            <div className={`${styles.Container} eventAnimation  ${props.recentEvent && styles.recentContainer}`}>
+            <div onClick={handleEventClick} className={`${styles.Container} eventAnimation  ${props.recentEvent && styles.recentContainer}`}>
                 <div className={`${styles.LeftSide}  ${props.recentEvent && styles.recentLeftSide}`}>
                     <img loading={"lazy"} src={imgUrl} alt={'thumbnail'} className={`${styles.ThumbnailImg}`} />
                     <div className={`${styles.OverLay}`}>
